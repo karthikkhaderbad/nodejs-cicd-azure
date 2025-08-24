@@ -32,10 +32,8 @@ jobs:
     - name: Set env variables  
       run: |
        echo "DOCKER_SERVER=${{ vars.DOCKER_SERVER }}" >> $GITHUB_ENV
-       echo DOCKER_SERVER:$DOCKER_SERVER
        echo "TAG=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
-       echo TAG:$TAG
-      
+       
     - name: Log in to container registry
       uses: docker/login-action@v1
       with:
