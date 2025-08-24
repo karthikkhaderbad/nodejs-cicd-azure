@@ -10,10 +10,10 @@ make appropriate changes in terraform.tfvars
 terraform init
 
 # next 2 commands are optional, you can run them just to be sure everything is alright before you go ahead and apply
-terraform fmt
+terraform fmt  
 terraform validate
 
-terraform plan -var-file="terraform.tfvars"
+terraform plan -var-file="terraform.tfvars"  
 terraform apply -var-file="terraform.tfvars" -auto-approve
 
 
