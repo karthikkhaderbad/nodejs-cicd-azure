@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     files: ["**/*.js"],
     languageOptions: {
@@ -6,7 +6,6 @@ export default [
       sourceType: "module"
     },
     rules: {
-      // Example rule
       "no-unused-vars": "warn"
     }
   }
