@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-cicd-azure",
+  "version": "1.0.0",
+  "description": "Simple Node.js app for DevOps CI/CD assignment (with health endpoint)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [
+    "devops",
+    "cicd",
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karthikkhaderbad/nodejs-cicd-azure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karthikkhaderbad/nodejs-cicd-azure/issues"
+  },
+  "homepage": "https://github.com/karthikkhaderbad/nodejs-cicd-azure#readme"
+}
