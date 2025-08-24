@@ -11,12 +11,13 @@ terraform init
 
 # next 2 commands are optional, you can run them just to be sure everything is alright before you go ahead and apply
 terraform fmt  
-terraform validate
+$terraform validate
 
 terraform plan -var-file="terraform.tfvars"  
 terraform apply -var-file="terraform.tfvars" -auto-approve
 
-# once resources are up and running, connect to the vm from portal using cloud shell
+# once resources are up and running, connect to the vm from portal using cloud shell  
+# use setup.sh in the root of this repo to install all the tools needed
 
 
 terraform destroy
