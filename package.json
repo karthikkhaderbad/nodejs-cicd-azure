@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "lint": "eslint .",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [
