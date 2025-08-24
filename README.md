@@ -17,7 +17,7 @@ terraform plan -var-file="terraform.tfvars"
 terraform apply -var-file="terraform.tfvars" -auto-approve
 
 # once resources are up and running, connect to the vm from portal using cloud shell  
-# use setup.sh in the root of this repo to install all the tools needed
+
 
 
 terraform destroy
