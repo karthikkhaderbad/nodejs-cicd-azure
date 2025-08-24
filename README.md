@@ -16,8 +16,7 @@ terraform validate
 terraform plan -var-file="terraform.tfvars"  
 terraform apply -var-file="terraform.tfvars" -auto-approve
 
-# once the resources are up, connec
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa.pem
+# once resources are up and running, connect to the vm from portal using cloud shell
 
 
 terraform destroy
