@@ -24,7 +24,7 @@ jobs:
     - name: linting
       run: |
         npm install eslint --save-dev
-        npm run lint --legacy-config
+        npm run lint
 
     - name: testing
       run: npm test
