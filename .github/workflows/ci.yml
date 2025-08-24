@@ -28,3 +28,24 @@ jobs:
 
     - name: testing
       run: npm test
+      
+    - name: Set env variables  
+      run: |
+       echo "DOCKER_SERVER=${{ vars.DOCKER_SERVER }}" >> $GITHUB_ENV
+       echo DOCKER_SERVER:$DOCKER_SERVER
+       echo "TAG=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+       echo TAG:$TAG
+      
+    - name: Log in to container registry
+      uses: docker/login-action@v1
+      with:
+         registry: ghcr.io
+         username: ${{ vars.DOCKER_USER }}
+         password: ${{ secrets.DOCKER_PASS }}
+
+    - name: Build and push Docker image
+      run: |
+       docker build -t $DOCKER_SERVER:$TAG .
+       docker push $DOCKER_SERVER:$TAG
+      
+
