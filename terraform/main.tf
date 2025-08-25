@@ -71,19 +71,25 @@ resource "null_resource" "post_setup" {
       user        = var.admin_username
       private_key = file("/home/karthik/.ssh/id_rsa")
       host        = module.vm.public_ip_address
+      timeout     = "2m"            # Increase timeout for initial SSH
+      #cbastion_host = var.bastion_ip # If behind jump host, else omit
+
     }
   }
 
   provisioner "remote-exec" {
-    inline = [
-      "bash /tmp/setup.sh"
+        inline = [
+            "chmod +x /tmp/setup.sh",
+            "sudo /tmp/setup.sh"
     ]
+
 
     connection {
       type        = "ssh"
       user        = var.admin_username
       private_key = file("/home/karthik/.ssh/id_rsa")
       host        = module.vm.public_ip_address
+      timeout     = "2m"
     }
   }
 
