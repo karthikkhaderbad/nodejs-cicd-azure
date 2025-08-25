@@ -17,6 +17,9 @@ terraform plan -var-file="terraform.tfvars"
 terraform apply -var-file="terraform.tfvars" -auto-approve
 
 # once resources are up and running, connect to the vm from portal using cloud shell  
+ssh-copy-id -f -i ~/.ssh/id_rsa.pub azureuser@<public ip of vm>  
+ssh -i ~/.ssh/id_rsa azureuser@< vm public ip>
+
 
 
 
