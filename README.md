@@ -1,7 +1,7 @@
 # steps to create the infrastructure in azure
 First you need to clone the repo
 az login
-az account set --subscription "<your-subscription-id-or-name>"
+az account set --subscription "<your-subscription-id-or-name>"  
 export ARM_SUBSCRIPTION_ID="<your-subscription-id>"
 cd terraform
 
