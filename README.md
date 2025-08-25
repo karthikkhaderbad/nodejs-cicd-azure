@@ -49,4 +49,14 @@ curl http://localhost:8080/
 Handling connection for 8080  
 output: {"message":"Hello World"}  
 # please note that this app is accessible only from this machine. If you want to be able to access from internet you need to register your domain and update your ingress accordingly  
+
+# Adding helm repos for prometheus and grafana    
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts  
+helm repo add grafana https://grafana.github.io/helm-charts  
+helm repo update  
+# install prometheus and grafana  
+helm install prometheus prometheus-community/prometheus  
+helm install grafana grafana/grafana  
+
+
 terraform destroy
