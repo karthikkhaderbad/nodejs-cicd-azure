@@ -57,6 +57,19 @@ helm repo update
 # install prometheus and grafana  
 helm install prometheus prometheus-community/prometheus  
 helm install grafana grafana/grafana  
+# port forward grafana  
+kubectl port-forward svc/grafana 3000:80 &  
+# since our vm is cli only, I am going to create a tunnel to my local in order to view grafana  
+ssh -L 3000:localhost:3000 azureuser@52.226.70.92  
+# open localhost:3000 in your local browser with credentials below  
+Username: admin  
+Password: get password with:  
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode  
+# login and add a data source, select prometheus and add   
+url=http://prometheus-server.default.svc.cluster.local:80  
+create a dashboard and add 2 panels for cpu and memory  
+query for cpu panel: sum(rate(container_cpu_usage_seconds_total{pod=~"nodejs-hello-world.*"}[5m])) by (pod)  
+query for memory panel: sum(container_memory_working_set_bytes{pod=~"nodejs-hello-world.*"}) by (pod)  
 
 
 terraform destroy
