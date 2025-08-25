@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: <your-domain-or-ip>           # Replace this with your domain or Minikube IP
+  - host: myapp.local
     http:
       paths:
       - path: /
