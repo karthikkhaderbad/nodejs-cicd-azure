@@ -1,3 +1,5 @@
+# NOTE: All features and deliverables completed (app code, Dockerization, CI/CD workflows, Terraform infrastructure, Kubernetes deployment, monitoring with Prometheus/Grafana).The only missing piece is exposing the app publicly. 
+
 # steps to create the infrastructure in azure
 First you need to clone the repo
 az login
@@ -30,7 +32,15 @@ cd nodejs-cicd-azure/k8s
 # make necessary changes to the yaml files and apply them  
 kubectl apply -f deployment.yaml  
 kubectl apply -f service.yaml  
+# install ingress-nginx  
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx  
+helm repo update  
+# make the app available to the internet  
+helm install nginx-ingress ingress-nginx/ingress-nginx  --set controller.service.type=NodePort  
+kubectl get svc -l app.kubernetes.io/name=ingress-nginx  
+# look for tcp ports in this service and allow inbound traffic in this NSG  
 
+  
 
 sudo vim /etc/hosts
 add the following :  
@@ -48,7 +58,6 @@ output: Handling connection for 8080
 curl http://localhost:8080/  
 Handling connection for 8080  
 output: {"message":"Hello World"}  
-# please note that this app is accessible only from this machine. If you want to be able to access from internet you need to register your domain and update your ingress accordingly  
 
 # Adding helm repos for prometheus and grafana    
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts  
