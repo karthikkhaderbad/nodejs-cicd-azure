@@ -20,7 +20,17 @@ terraform apply -var-file="terraform.tfvars" -auto-approve
 ssh-copy-id -f -i ~/.ssh/id_rsa.pub azureuser@{public ip of vm}  
 ssh -i ~/.ssh/id_rsa azureuser@{ vm public ip}
 
-
+# once loged into vm  
+sudo usermod -aG docker $USER  
+newgrp docker  
+docker version  
+minikube start  
+git clone https://github.com/karthikkhaderbad/nodejs-cicd-azure.git  
+cd nodejs-cicd-azure/k8s  
+# make necessary changes to the yaml files and apply them  
+kubectl apply -f deployment.yaml  
+kubectl apply -f service.yaml  
+kubectl apply -f ingress.yaml  
 
 
 terraform destroy
