@@ -69,7 +69,7 @@ helm install grafana grafana/grafana
 # port forward grafana  
 kubectl port-forward svc/grafana 3000:80 &  
 # since our vm is cli only, I am going to create a tunnel to my local in order to view grafana  
-ssh -L 3000:localhost:3000 azureuser@52.226.70.92  
+ssh -L 3000:localhost:3000 azureuser@<local IP>
 # open localhost:3000 in your local browser with credentials below  
 Username: admin  
 Password: get password with:  
